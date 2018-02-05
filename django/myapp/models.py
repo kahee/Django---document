@@ -34,4 +34,8 @@ class Person(models.Model):
                                   choices=SHIRT_SIZES)
 
     def __str__(self):
-        return '{self.name} (PK:{self.pk}, 셔츠사이즈:{self.shirt_size})'
+        return '{name} (PK: {pk}, 셔츠 사이즈: {shirt_size}'.format(
+            name=self.name,
+            pk=self.pk,
+            shirt_size=self.get_shirt_size_display(),
+        )
