@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'myapp',
     'foreign',
+    'many_to_many',
 ]
 
 MIDDLEWARE = [
