@@ -2,7 +2,7 @@ from django.db import models
 
 __all__ = (
     'TwitterUser',
-    'Relation'
+    'Relation',
 )
 
 
@@ -71,6 +71,24 @@ class TwitterUser(models.Model):
         self.relations_by_from_user.create(
         type = Relation.RELATION_TYPE_BLOCK,
         to_user = to_user, )
+
+
+    def is_followee(self,to_user):
+        '''
+        내가 to_user를 follow하고 있는지 여부를 true/false로 반환
+        :param to_user:
+        :return:
+        '''
+        return self.following.filter(pk=to_user.pk).exists()
+
+    def is_follower(self,from_user):
+        return self.followers.filter(pk=from_user.pk).exists()
+
+    @property
+    def followers(self):
+        pk_list = self.relations_by_to_user.filter(
+            type = Relation.RELATION_TYPE_FOLLOWING).values_list('from_user', flat = True)
+        return TwitterUser.objects.filter(pk__in=pk_list)
 
 
 class Relation(models.Model):
