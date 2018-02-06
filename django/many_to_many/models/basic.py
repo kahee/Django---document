@@ -1,7 +1,9 @@
-# Create your models here.
-from django.forms import models
+from django.db import models
 
-__all__ = ('Topping', 'Pizza')
+__all__ = (
+    'Topping',
+    'Pizza',
+)
 
 
 class Topping(models.Model):
@@ -12,7 +14,7 @@ class Topping(models.Model):
 
 
 class Pizza(models.Model):
-    name = models.CharField(max_length=90)
+    name = models.CharField(max_length=50)
     toppings = models.ManyToManyField(Topping)
 
     def __str__(self):
