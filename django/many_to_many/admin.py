@@ -8,6 +8,9 @@ from .models import (
     # self
     FacebookUser,
     InstagramUser,
+    TwitterUser,
+    Relation
+
 )
 
 admin.site.register(Topping)
@@ -17,3 +20,5 @@ admin.site.register(User)
 admin.site.register(PostLike)
 admin.site.register(FacebookUser)
 admin.site.register(InstagramUser)
+admin.site.register(TwitterUser)
+admin.site.register(Relation)
