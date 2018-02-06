@@ -22,20 +22,20 @@ class TwitterUser(models.Model):
         related_name='+'
     )
 
-    class Relation(models.Model):
-        RELATION_TYPE_FOLLOWING = 'f'
-        RELATION_TYPE_BLOCK = 'b'
-        CHOICES_TYPE = (
-            (RELATION_TYPE_FOLLOWING, '팔로잉'),
-            (RELATION_TYPE_BLOCK, '차단'),
-        )
+class Relation(models.Model):
+    RELATION_TYPE_FOLLOWING = 'f'
+    RELATION_TYPE_BLOCK = 'b'
+    CHOICES_TYPE = (
+        (RELATION_TYPE_FOLLOWING, '팔로잉'),
+        (RELATION_TYPE_BLOCK, '차단'),
+    )
 
-        from_user = models.ForeignKey(
-            TwitterUser,
-            on_delete=models.CASCADE,
-        )
-        to_user = models.ForeignKey(
-            TwitterUser,
-            on_delete=models.CASCADE,
-        )
-        type = models.CharField(max_length=1, choices=CHOICES_TYPE)
+    from_user = models.ForeignKey(
+        TwitterUser,
+        on_delete=models.CASCADE,
+    )
+    to_user = models.ForeignKey(
+        TwitterUser,
+        on_delete=models.CASCADE,
+    )
+    type = models.CharField(max_length=1, choices=CHOICES_TYPE)
