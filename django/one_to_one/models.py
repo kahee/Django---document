@@ -10,6 +10,8 @@ class Place(models.Model):
 
 
 class Restaurant(models.Model):
+    # 테이블은 다르지만 place의 pk와 동일하므로, 자기자신의 pk이만 가져오면됨
+
     place = models.OneToOneField(
         Place,
         on_delete=models.CASCADE,
