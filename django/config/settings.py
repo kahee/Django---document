@@ -39,11 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'myapp',
-    'foreign',
-    'many_to_many',
-    'one_to_one',
+    'relations.foreign.apps.ForeignConfig',
+    'relations.many_to_many.apps.ManyToMnayConfig',
+    'relations.one_to_one.apps.OneToOneConfig',
 
     'inheritance.abstract_base_classes',
+    'inheritance.rel.apps.RelConfig',
 ]
 
 MIDDLEWARE = [
