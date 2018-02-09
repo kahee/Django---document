@@ -40,4 +40,3 @@ class ExtraMangerModel(models.Model):
 
 class ChildC(AbstractBase, ExtraMangerModel):
     pass
-gi
