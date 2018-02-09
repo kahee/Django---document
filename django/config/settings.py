@@ -43,9 +43,12 @@ INSTALLED_APPS = [
     'relations.many_to_many.apps.ManyToMnayConfig',
     'relations.one_to_one.apps.OneToOneConfig',
 
+    'django_extensions',
+    
     'inheritance.abstract_base_classes',
     'inheritance.rel',
-    'inheritance.multi_table.apps.MultiTableConfig'
+    'inheritance.multi_table',
+    'inheritance.proxy.apps.ProxyConfig',
 ]
 
 MIDDLEWARE = [
